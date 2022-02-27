@@ -1,0 +1,15 @@
+#Requirements
+# What Kind Of News
+1.Business
+2.Tech
+3.Movies
+4.Food
+5.Crypto
+6.WebStories
+7.Education
+8.LifeStyle
+9.Health
+10.Shopping
+11.Automobiles
+12. Sports
+13.Science 

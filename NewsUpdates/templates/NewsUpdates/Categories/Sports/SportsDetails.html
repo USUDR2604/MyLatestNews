@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category2.html" %}
+{% block title %}SPORTS NEWS{% endblock %}
+{% block content %}
+<div class='Sports-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Sports/Sports-Carouselling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty '>
+                {% for sports in Sports_newslis %}
+                    <div class='Card-Carousling-Content Sports-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>SPORTS NEWS {{sports.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{sports.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{sports.Category}}</p>
+                                <h5 class="card-title">{{sports.title}}</h5>
+                                <p class="card-text">{{sports.description|safe}}</p>
+                                <a href="{{sports.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{sports.publishedat}} at {{sports.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Tesla-Content-Sty d-none d-lg-block'>
+                {% for cricket in Cricket_newslis %}
+                    <div class='Cricket-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>CRICKET NEWS {{cricket.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{cricket.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{cricket.Category}}</p>
+                                <h5 class="card-title">{{cricket.title}}</h5>
+                                <p class="card-text">{{cricket.description|safe}}</p>
+                                <a href="{{cricket.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{cricket.publishedat}} at {{cricket.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

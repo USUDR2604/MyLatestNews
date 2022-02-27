@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}SCIENCE NEWS{% endblock %}
+{% block content %}
+<div class='Science-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Science/Science-Carouselling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for science in Science_newslis %}
+                    <div class='Card-Carousling-Content Science-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>SCIENCE NEWS {{science.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{science.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{science.Category}}</p>
+                                <h5 class="card-title">{{science.title}}</h5>
+                                <p class="card-text">{{science.description|safe}}</p>
+                                <a href="{{science.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{science.publishedat}} at {{science.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for chemist in Chemist_newslis %}
+                    <div class='chemist-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>CHEMIST NEWS {{chemist.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{chemist.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{chemist.Category}}</p>
+                                <h5 class="card-title">{{chemist.title}}</h5>
+                                <p class="card-text">{{chemist.description|safe}}</p>
+                                <a href="{{chemist.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{chemist.publishedat}} at {{chemist.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

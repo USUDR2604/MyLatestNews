@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}TECHNOLOGY NEWS{% endblock %}
+{% block content %}
+<div class='Technology-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Technology/Technology-Carouselling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for Tech in Technology_newslis %}
+                    <div class='Card-Carousling-Content Technology-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>TECHNOLOGY NEWS {{Tech.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{Tech.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{Tech.Category}}</p>
+                                <h5 class="card-title">{{Tech.title}}</h5>
+                                <p class="card-text">{{Tech.description|safe}}</p>
+                                <a href="{{Tech.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{Tech.publishedat}} at {{Tech.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for audi in Audi_newslis %}
+                    <div class='AUDI-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>AUDI NEWS {{audi.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{audi.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{audi.Category}}</p>
+                                <h5 class="card-title">{{audi.title}}</h5>
+                                <p class="card-text">{{audi.description|safe}}</p>
+                                <a href="{{audi.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{audi.publishedat}} at {{audi.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

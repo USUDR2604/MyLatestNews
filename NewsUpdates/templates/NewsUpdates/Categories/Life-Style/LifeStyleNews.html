@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}LIFE STYLE NEWS{% endblock %}
+{% block content %}
+<div class='Life-Style-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Life-Style/Life-Style-carouselling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for lifestyle in LifeStyle_newslis %}
+                    <div class='Card-Carousling-Content LifeStyle-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>LIFE STYLE NEWS {{lifestyle.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{lifestyle.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{lifestyle.Category}}</p>
+                                <h5 class="card-title">{{lifestyle.title}}</h5>
+                                <p class="card-text">{{lifestyle.description|safe}}</p>
+                                <a href="{{lifestyle.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{lifestyle.publishedat}} at {{lifestyle.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for style in Style_newslis %}
+                    <div class='style-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>STYLE NEWS {{style.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{style.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{style.Category}}</p>
+                                <h5 class="card-title">{{style.title}}</h5>
+                                <p class="card-text">{{style.description|safe}}</p>
+                                <a href="{{style.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{style.publishedat}} at {{style.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}AUTOMOBILE NEWS{% endblock %}
+{% block content %}
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for automobiles in AutoMobile_newslis %}
+                    <div class='Card-Carousling-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>AUTOMOBILE NEWS {{automobiles.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{automobiles.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{automobiles.Category}}</p>
+                                <h5 class="card-title">{{automobiles.title}}</h5>
+                                <p class="card-text">{{automobiles.description|safe}}</p>
+                                <a href="{{automobiles.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{automobiles.publishedat}} at {{automobiles.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Tesla-Content-Sty d-none d-lg-block'>
+                {% for automobiles in benz_newslis %}
+                    <div class='Tesla-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>BENZ NEWS {{automobiles.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{automobiles.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{automobiles.Category}}</p>
+                                <h5 class="card-title">{{automobiles.title}}</h5>
+                                <p class="card-text">{{automobiles.description|safe}}</p>
+                                <a href="{{automobiles.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{automobiles.publishedat}} at {{automobiles.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

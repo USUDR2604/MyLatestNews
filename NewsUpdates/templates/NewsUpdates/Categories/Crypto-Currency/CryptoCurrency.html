@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}CRYPTO CURRENCY NEWS{% endblock %}
+{% block content %}
+ <div class='Crime-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Crypto-Currency/CryptoCurrencyCarousel.html' %}
+ </div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for CryptoCurrency in CryptoCurrency_newslis %}
+                    <div class='Card-Carousling-Content CryptoCurrency-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>CRYPTO CURRENCY NEWS {{CryptoCurrency.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{CryptoCurrency.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{CryptoCurrency.Category}}</p>
+                                <h5 class="card-title">{{CryptoCurrency.title}}</h5>
+                                <p class="card-text">{{CryptoCurrency.description|safe}}</p>
+                                <a href="{{CryptoCurrency.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{CryptoCurrency.publishedat}} at {{CryptoCurrency.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for ShareMarket in ShareMarket_newslis %}
+                    <div class='ShareMarket-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>SHARE MARKET NEWS {{ShareMarket.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{ShareMarket.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{ShareMarket.Category}}</p>
+                                <h5 class="card-title">{{ShareMarket.title}}</h5>
+                                <p class="card-text">{{ShareMarket.description|safe}}</p>
+                                <a href="{{ShareMarket.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{ShareMarket.publishedat}} at {{ShareMarket.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

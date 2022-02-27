@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category2.html" %}
+{% block title %}BUSINESS NEWS{% endblock %}
+{% block content %}
+<div class='Business-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Business/BusinessCarousel.html' %}
+</div>    
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for automobiles in Business_newslis %}
+                    <div class='Card-Carousling-Content Business-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>BUSINESS NEWS {{automobiles.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{automobiles.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{automobiles.Category}}</p>
+                                <h5 class="card-title">{{automobiles.title}}</h5>
+                                <p class="card-text">{{automobiles.description|safe}}</p>
+                                <a href="{{automobiles.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{automobiles.publishedat}} at {{automobiles.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for automobiles in Stocks_newslis %}
+                    <div class='Tesla-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>STOCK NEWS {{automobiles.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{automobiles.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{automobiles.Category}}</p>
+                                <h5 class="card-title">{{automobiles.title}}</h5>
+                                <p class="card-text">{{automobiles.description|safe}}</p>
+                                <a href="{{automobiles.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{automobiles.publishedat}} at {{automobiles.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

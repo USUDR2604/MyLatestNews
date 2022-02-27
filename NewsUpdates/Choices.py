@@ -1,0 +1,1 @@
+AutoMobiles={'ImageUrl':'/media/AutoMobiles/AutoMobile_1.jpg'}

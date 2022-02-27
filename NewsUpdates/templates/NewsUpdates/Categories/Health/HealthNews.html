@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}HEALTH NEWS{% endblock %}
+{% block content %}
+<div class='Health-Carouselling-Content'>
+{% include 'NewsUpdates/Categories/Health/Health-Carousel.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for health in Health_newslis %}
+                    <div class='Card-Carousling-Content Health-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>HEALTH NEWS {{health.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{health.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{health.Category}}</p>
+                                <h5 class="card-title">{{health.title}}</h5>
+                                <p class="card-text">{{health.description|safe}}</p>
+                                <a href="{{health.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{health.publishedat}} at {{health.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for medicine in Medicines_newslis %}
+                    <div class='medicine-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>MEDICINE NEWS {{medicine.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{medicine.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{medicine.Category}}</p>
+                                <h5 class="card-title">{{medicine.title}}</h5>
+                                <p class="card-text">{{medicine.description|safe}}</p>
+                                <a href="{{medicine.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{medicine.publishedat}} at {{medicine.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

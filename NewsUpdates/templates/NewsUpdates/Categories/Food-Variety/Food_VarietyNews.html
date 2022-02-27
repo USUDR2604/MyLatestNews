@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category2.html" %}
+{% block title %}FOODVARIETY NEWS{% endblock %}
+{% block content %}
+<div class='Food_Variety_Content'>
+{% include 'NewsUpdates/Categories/Food-Variety/Food-Variety-carouselling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty '>
+                {% for foodvariety in FoodVariety_newslis %}
+                    <div class='Card-Carousling-Content FoodVariety-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>FOOD VARIETY NEWS {{foodvariety.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{foodvariety.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{foodvariety.Category}}</p>
+                                <h5 class="card-title">{{foodvariety.title}}</h5>
+                                <p class="card-text">{{foodvariety.description|safe}}</p>
+                                <a href="{{foodvariety.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{foodvariety.publishedat}} at {{foodvariety.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Tesla-Content-Sty d-none d-lg-block'>
+                {% for hotel in Restaurants_newslis %}
+                    <div class='Restaurant-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>RESTAURANT NEWS {{hotel.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{hotel.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{hotel.Category}}</p>
+                                <h5 class="card-title">{{hotel.title}}</h5>
+                                <p class="card-text">{{hotel.description|safe}}</p>
+                                <a href="{{hotel.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{hotel.publishedat}} at {{hotel.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

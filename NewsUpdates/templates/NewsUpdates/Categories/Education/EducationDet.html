@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category1.html" %}
+{% block title %}EDUCATION NEWS{% endblock %}
+{% block content %}
+<div class='Education-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Education/Education-Carousel.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for education in Education_newslis %}
+                    <div class='Card-Carousling-Content Education-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>EDUCATION NEWS {{education.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{education.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{education.Category}}</p>
+                                <h5 class="card-title">{{education.title}}</h5>
+                                <p class="card-text">{{education.description|safe}}</p>
+                                <a href="{{education.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{education.publishedat}} at {{education.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Stocks-Content-Sty d-none d-lg-block'>
+                {% for tesla in Tesla_newslis %}
+                    <div class='Tesla-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>TESLA NEWS {{tesla.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{tesla.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{tesla.Category}}</p>
+                                <h5 class="card-title">{{tesla.title}}</h5>
+                                <p class="card-text">{{tesla.description|safe}}</p>
+                                <a href="{{tesla.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{tesla.publishedat}} at {{tesla.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

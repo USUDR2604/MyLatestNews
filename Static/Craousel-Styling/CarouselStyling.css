@@ -1,0 +1,29 @@
+@media (max-width:575.98px) {
+    .img-sty {
+        height: 48vh !important;
+    }
+}
+
+@media (min-width:575.98px) and (max-width:767.98px) {
+    .img-sty {
+        height: 65vh !important;
+    }
+}
+
+@media (min-width:767.98px) and (max-width:990.98px) {
+    .img-sty {
+        height: 72vh !important;
+    }
+}
+
+@media (min-width:990.98px) and (max-midth:1200px) {
+    .img-sty {
+        height: 84vh !important;
+    }
+}
+
+@media (min-width:1200.98px) {
+    .img-sty {
+        height: 90vh !important;
+    }
+}

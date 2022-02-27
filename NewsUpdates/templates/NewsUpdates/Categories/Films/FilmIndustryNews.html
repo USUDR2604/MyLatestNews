@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category2.html" %}
+{% block title %}FOODVARIETY NEWS{% endblock %}
+{% block content %}
+<div class='Film-Carousel-Content'>
+{% include 'NewsUpdates/Categories/Films/FilmCarouseling.html' %}
+</div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty '>
+                {% for movie in Movies_newslis %}
+                    <div class='Card-Carousling-Content FoodVariety-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>MOVIES NEWS {{movie.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{movie.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{movie.Category}}</p>
+                                <h5 class="card-title">{{movie.title}}</h5>
+                                <p class="card-text">{{movie.description|safe}}</p>
+                                <a href="{{movie.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{movie.publishedat}} at {{movie.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Tesla-Content-Sty d-none d-lg-block'>
+                {% for film in FilmIndustry_newslis %}
+                    <div class='Film-Industry-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>FILM INDUSTRY NEWS {{film.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{film.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{film.Category}}</p>
+                                <h5 class="card-title">{{film.title}}</h5>
+                                <p class="card-text">{{film.description|safe}}</p>
+                                <a href="{{film.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{film.publishedat}} at {{film.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}

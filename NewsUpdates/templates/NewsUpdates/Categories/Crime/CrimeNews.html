@@ -1,0 +1,58 @@
+
+{% extends "NewsUpdates/BaseTemplates/Category2.html" %}
+{% block title %}CRIME NEWS{% endblock %}
+{% block content %}
+<div class='Crime-Carousel-Content'>
+    {% include 'NewsUpdates/Categories/Crime/CrimeCarousel.html' %}
+    </div>
+<div class='bg-content-sty container'>
+    <div class='row'>
+        <div class='col-lg-8'>
+            <div class='Carousel-Content-Sty'>
+                {% for crime in Crime_newslis %}
+                    <div class='Card-Carousling-Content Crime-Content'>
+                        <div class="card main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>CRIME NEWS {{crime.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{crime.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{crime.Category}}</p>
+                                <h5 class="card-title">{{crime.title}}</h5>
+                                <p class="card-text">{{crime.description|safe}}</p>
+                                <a href="{{crime.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{crime.publishedat}} at {{crime.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-4'>
+            <div class='Tesla-Content-Sty d-none d-lg-block'>
+                {% for rrcar in RR_newslis %}
+                    <div class='Tesla-content'>
+                        <div class="card sub-main-card">
+                            <div class='card-header-sty'>
+                                <p class='Heading-Details'>RR NEWS {{rrcar.id}}</p>
+                            </div>
+                            <img class="card-img-top" src="{{rrcar.image}}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class='card-category text-right'><span class='hsty'>CATEGORY</span>&nbsp;:&nbsp;{{rrcar.Category}}</p>
+                                <h5 class="card-title">{{rrcar.title}}</h5>
+                                <p class="card-text">{{rrcar.description|safe}}</p>
+                                <a href="{{rrcar.url}}" class="btn btn-primary" target="_blank">More Details</a>
+                            </div>
+                            <div class='card-footer-sty'>
+                                <p class='publish-sty'>Published on {{rrcar.publishedat}} at {{rrcar.publishtime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+</div>
+</div>
+{% endblock content %}
