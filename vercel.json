@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "MyLatestNews/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "MyLatestNews/wsgi.py"
+      }
+    ]
+}
